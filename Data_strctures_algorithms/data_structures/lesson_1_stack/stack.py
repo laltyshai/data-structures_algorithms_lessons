@@ -8,15 +8,25 @@ class Stack:
     
     def peek(self):
         if not self.isEmpty():
-            return self.array[-1]
+            return True if self.count ==0 else False
         else:
             print("exception: list is empty")
+            
     def push(self, element):
-            self.array.append(element)
+        if count<max:
+            self.array[self.count]= element
+            count+=1
+        else:
+            print("exception: list is full")
+            
     def pop(self):
         if not self.isEmpty():
-            self.array.pop()
+            last = self.peek()
+            count-=1
+            return last
+        else:
             print("exception: list is empty")
+        
         
     def isEmpty(self):
         return False if self.array else True

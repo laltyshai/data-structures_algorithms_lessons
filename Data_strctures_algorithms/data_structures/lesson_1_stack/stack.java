@@ -6,12 +6,12 @@ Write your code in this editor and press "Run" button to execute it.
 
 *******************************************************************************/
 
-public class Main
-{
-	public static void main(String[] args) {
-		System.out.println("Hello World");
-	}
-}
+// public class Main
+// {
+// 	public static void main(String[] args) {
+// 		System.out.println("Hello World");
+// 	}
+// }
 
 public class Stack {
     private int[] array;
@@ -24,13 +24,11 @@ public class Stack {
         count=0;
     }
     
-    public void isEmpty() {
-        if (count==o) return True;
-        return False;
+    public boolean isEmpty() {
+        if (count==0) return true;
+        return false;
     }
-    
-    
-    
+
     
     public void push(int num){
         if (count!=size) {
@@ -40,21 +38,30 @@ public class Stack {
             return;
         }
         else {
-        system.out.println("capacity is full");
+        System.out.println("capacity is full");
         return;
         }
 
     }
     
-    public void peek(){
-        
+    public int peek(){
+        if (!this.isEmpty()) {
+            return array[count];
+        }
+        else return -1;
+    }
+    
+    public int pop(){
+        if (!this.isEmpty()) {
+            int last = array[count];
+            count-=1;
+            return last ;
+        }
+        else return -1;
+    }
     }
     
     
+
     
     
-    
-    
-    
-    
-}
