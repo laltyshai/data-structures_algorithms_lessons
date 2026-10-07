@@ -30,18 +30,21 @@ def countingSort(ar):
 
 
 def countingSort2(ar):
+    if not ar:
+        return []
     lo, hi = min(ar), max(ar)
-    counter = [0] * (hi + 1)
+    counter = [0] * (hi - lo + 1)   # one slot per value from lo to hi
 
-    for x in ar:
-        counter[x] += 1
-    for i in range(1, len(counter)):
+    for x in ar:                    # 1. count each value
+        counter[x - lo] += 1
+    for i in range(1, len(counter)):    # 2. running total = end position
         counter[i] += counter[i - 1]
-    print(counter)
+
     res = [0] * len(ar)
-    for j in (ar):
-        counter[j] -= 1
-        res[counter[j]] = j
+    for x in reversed(ar):          # 3. place from the back, keeps it stable
+        counter[x - lo] -= 1
+        res[counter[x - lo]] = x
     return res
-print(countingSort(array4))
-print("expected", sorted(array4))
+
+for arr in (array, array2, arr3, array4):
+    print(countingSort2(arr), "expected", sorted(arr))
