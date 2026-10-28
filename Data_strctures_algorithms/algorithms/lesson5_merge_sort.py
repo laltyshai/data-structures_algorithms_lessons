@@ -27,3 +27,31 @@ def merge(ar1, ar2):
 print(arr1)
 print("\n .............")
 print(merge_sort(arr1))
+
+
+
+# version2
+def mergesort(ar):
+    length = len(ar)
+    if len(ar) == 1:
+        return ar
+    mid = length//2
+    l = mergesort(ar[mid:])
+    r = mergesort(ar[:mid])
+    return merge1(l,r)
+def merge1(l,r):
+    i,j=0,0
+    res=[]
+    while i<len(l) and j<len(r):
+        if l[i]<r[j]:
+            res.append(l[i])
+            i+=1
+        else:
+            res.append(r[j])
+            j+=1
+    res+=l[i:]
+    res+=r[j:]
+    return res
+print(arr1)
+print("\n .............")
+print(mergesort(arr1))
